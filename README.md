@@ -1,6 +1,6 @@
-# Moss-chat-web
+# chat-web-garbot
 
-A minimal TypeScript web application built with Express.js that provides an AI chat interface powered by the GitHub Copilot SDK. This application integrates with GitHub Copilot to provide intelligent responses, enhanced with a local knowledge base for context-aware answers.
+A TypeScript web application built with Express.js that provides an AI chat interface powered by the GitHub Copilot SDK. This is a single chat application with deep local knowledge on topics you care about — add content to the `data/` directory and the assistant automatically uses it to provide context-aware answers. It comes with skills to download new content, and when a user asks a question, it searches its local knowledge base for relevant context before the AI responds.
 
 ## Features
 
@@ -16,7 +16,7 @@ A minimal TypeScript web application built with Express.js that provides an AI c
 ## Project Structure
 
 ```
-moss-chat-web/
+chat-web-garbot/
 ├── src/
 │   ├── server.ts              # Express server with API endpoints
 │   ├── copilot-service.ts     # GitHub Copilot SDK wrapper
@@ -53,8 +53,8 @@ moss-chat-web/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/sekka1/Moss-chat-web.git
-cd Moss-chat-web
+git clone https://github.com/sekka1/chat-web-garbot.git
+cd chat-web-garbot
 ```
 
 ### 2. Install dependencies
@@ -112,7 +112,7 @@ The deploy pipeline automatically passes `SESSION_SECRET` from GitHub Actions se
 
 2. The deploy script (`scripts/deploy.sh`) automatically:
    - Passes the secret to the PM2 process on every deploy
-   - Writes it to `/opt/bitnami/apps/moss-chat/.env` on the server so it persists across manual PM2 restarts
+   - Writes it to `/opt/bitnami/apps/garbot-chat/.env` on the server so it persists across manual PM2 restarts
    - Seeds the user database on first deploy (prints passwords to the deploy log)
 
 > **⚠️ Important:** Use the **same** `SESSION_SECRET` value in GitHub secrets and on the server. Changing it will invalidate all existing user sessions.
@@ -223,7 +223,7 @@ npm run test:coverage  # Generate test coverage report
 
 1. Start the server using one of the methods above
 2. Open your browser to `http://localhost:3000`
-3. You'll see the Moss Chat interface with:
+3. You'll see the Garbot Chat interface with:
    - **Top area**: Displays AI responses and chat history
    - **Bottom area**: Input box for typing questions
 4. Type a question and press Enter or click Send

@@ -6,9 +6,9 @@ Scripts to deploy this app onto a linux server
 
 ```
 pm2 status              # See running processes
-pm2 logs moss-chat      # View logs
-pm2 restart moss-chat   # Restart app
-pm2 stop moss-chat      # Stop app
+pm2 logs garbot-chat      # View logs
+pm2 restart garbot-chat   # Restart app
+pm2 stop garbot-chat      # Stop app
 pm2 monit               # Real-time monitoring
 ```
 

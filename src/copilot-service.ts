@@ -47,7 +47,7 @@ export class CopilotService {
 
     try {
       // System instruction for detailed, comprehensive responses
-      const systemInstruction = 'You are a helpful and knowledgeable moss wall expert. Provide detailed, comprehensive answers with specific tips, care instructions, and explanations. Aim for thorough responses that fully address the question.';
+      const systemInstruction = 'You are a helpful and knowledgeable assistant. Use the provided local knowledge base to give detailed, comprehensive answers with specific tips, instructions, and explanations. Aim for thorough responses that fully address the question.';
 
       // Build enhanced prompt with knowledge base context if available
       const enhancedPrompt = context
@@ -95,7 +95,7 @@ export class CopilotService {
 
     try {
       // System instruction for detailed, comprehensive responses
-      const systemInstruction = 'You are a helpful and knowledgeable moss wall expert. Provide detailed, comprehensive answers with specific tips, care instructions, and explanations. Aim for thorough responses that fully address the question.';
+      const systemInstruction = 'You are a helpful and knowledgeable assistant. Use the provided local knowledge base to give detailed, comprehensive answers with specific tips, instructions, and explanations. Aim for thorough responses that fully address the question.';
 
       // Build enhanced prompt with knowledge base context if available
       const enhancedPrompt = context

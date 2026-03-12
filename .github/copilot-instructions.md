@@ -1,6 +1,6 @@
 # GitHub Copilot Instructions for TypeScript Web Application
 
-This file provides TypeScript-specific coding standards and best practices for GitHub Copilot when working on the Moss-chat-web project.
+This file provides TypeScript-specific coding standards and best practices for GitHub Copilot when working on the chat-web-garbot project.
 
 ## General TypeScript Standards
 

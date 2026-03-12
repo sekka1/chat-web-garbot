@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the implementation of GitHub Copilot SDK-based semantic document relevance ranking in the Moss-chat-web application.
+This document describes the implementation of GitHub Copilot SDK-based semantic document relevance ranking in the chat-web-garbot application.
 
 ## Problem Statement
 

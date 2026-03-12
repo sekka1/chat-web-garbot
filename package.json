@@ -1,5 +1,5 @@
 {
-  "name": "moss-chat-web",
+  "name": "chat-web-garbot",
   "version": "1.0.0",
   "description": "A minimal TypeScript web application with Express.js for AI chat interface",
   "type": "module",

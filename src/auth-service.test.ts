@@ -186,7 +186,7 @@ describe('requireAuth middleware', () => {
   });
 
   it('should return 401 for an invalid token', () => {
-    const req = mockRequest({ cookies: { moss_session: 'bad-token' } });
+    const req = mockRequest({ cookies: { garbot_session: 'bad-token' } });
     const res = mockResponse();
     const next = jest.fn();
 
@@ -200,7 +200,7 @@ describe('requireAuth middleware', () => {
     const clientHash = sha256('test-password-123');
     const token = await verifyLogin('test@example.com', clientHash);
 
-    const req = mockRequest({ cookies: { moss_session: token! } });
+    const req = mockRequest({ cookies: { garbot_session: token! } });
     const res = mockResponse();
     const next = jest.fn();
 

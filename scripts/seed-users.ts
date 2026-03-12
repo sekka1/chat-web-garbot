@@ -81,7 +81,7 @@ async function main(): Promise<void> {
 
   console.log('');
   console.log('='.repeat(60));
-  console.log('  Moss Chat — User Seed');
+  console.log('  Garbot Chat — User Seed');
   console.log('='.repeat(60));
   console.log('');
 

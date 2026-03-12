@@ -1,6 +1,6 @@
 # Agent Context for Data Directory
 
-This file provides guidance for AI agents working with the Moss-chat-web knowledge base.
+This file provides guidance for AI agents working with the chat-web-garbot knowledge base.
 
 ## Directory Structure
 

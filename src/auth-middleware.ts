@@ -1,7 +1,7 @@
 /**
  * Authentication middleware
  *
- * Reads the JWT from the `moss_session` HTTP-only cookie and attaches
+ * Reads the JWT from the `garbot_session` HTTP-only cookie and attaches
  * the decoded user payload to `req.user`. Returns 401 for unauthenticated
  * requests.
  *
@@ -14,7 +14,7 @@ import { Request, Response, NextFunction } from 'express';
 import { verifyToken, TokenPayload } from './auth-service.js';
 
 /** Cookie name used for the session JWT */
-export const SESSION_COOKIE = 'moss_session';
+export const SESSION_COOKIE = 'garbot_session';
 
 /** Extend Express Request to include the authenticated user */
 /* eslint-disable @typescript-eslint/no-namespace */

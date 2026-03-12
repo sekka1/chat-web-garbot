@@ -85,14 +85,14 @@ afterAll(() => {
 // ---------- Helpers ----------
 
 /**
- * Extracts the moss_session cookie value from a supertest response.
+ * Extracts the garbot_session cookie value from a supertest response.
  */
 function getSessionCookie(res: supertest.Response): string | undefined {
   const raw = res.headers['set-cookie'];
   const cookies = (Array.isArray(raw) ? raw : [raw]) as string[];
   if (!cookies || cookies.length === 0) return undefined;
   const match = cookies
-    .find((c: string) => c.startsWith('moss_session='));
+    .find((c: string) => c.startsWith('garbot_session='));
   if (!match) return undefined;
   return match.split(';')[0].split('=').slice(1).join('=');
 }
@@ -166,7 +166,7 @@ describe('Auth integration flow', () => {
     const rawCookies = res.headers['set-cookie'];
     const allCookies = (Array.isArray(rawCookies) ? rawCookies : [rawCookies]) as string[];
     const cookieHeader = allCookies
-      .find((c: string) => c.startsWith('moss_session='))!;
+      .find((c: string) => c.startsWith('garbot_session='))!;
     expect(cookieHeader).toContain('HttpOnly');
     expect(cookieHeader).toContain('SameSite=Strict');
     expect(cookieHeader).toContain('Path=/');
@@ -177,7 +177,7 @@ describe('Auth integration flow', () => {
   it('GET /api/auth/status should return 200 with valid cookie', async () => {
     const res = await supertest(app)
       .get('/api/auth/status')
-      .set('Cookie', `moss_session=${sessionCookie}`);
+      .set('Cookie', `garbot_session=${sessionCookie}`);
 
     expect(res.status).toBe(200);
     expect(res.body.authenticated).toBe(true);
@@ -196,7 +196,7 @@ describe('Auth integration flow', () => {
   it('POST /api/logout should clear the session cookie', async () => {
     const res = await supertest(app)
       .post('/api/logout')
-      .set('Cookie', `moss_session=${sessionCookie}`);
+      .set('Cookie', `garbot_session=${sessionCookie}`);
 
     expect(res.status).toBe(200);
     expect(res.body.success).toBe(true);
@@ -205,7 +205,7 @@ describe('Auth integration flow', () => {
     const rawCookies = res.headers['set-cookie'];
     const allCookies = (Array.isArray(rawCookies) ? rawCookies : [rawCookies]) as string[];
     const cookieHeader = allCookies
-      .find((c: string) => c.startsWith('moss_session='));
+      .find((c: string) => c.startsWith('garbot_session='));
     expect(cookieHeader).toBeDefined();
   });
 
@@ -217,7 +217,7 @@ describe('Auth integration flow', () => {
   it('GET /api/auth/status should return 401 with a tampered token', async () => {
     const res = await supertest(app)
       .get('/api/auth/status')
-      .set('Cookie', 'moss_session=this.is.not.a.valid.jwt');
+      .set('Cookie', 'garbot_session=this.is.not.a.valid.jwt');
     expect(res.status).toBe(401);
   });
 

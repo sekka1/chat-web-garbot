@@ -1,5 +1,5 @@
 #!/bin/bash
-# Deployment script for Moss Chat Web
+# Deployment script for Garbot Chat Web
 # Usage: 
 #   Local:  ./scripts/deploy.sh
 #   CI:     ./scripts/deploy.sh --ci
@@ -17,8 +17,8 @@ set -e  # Exit on any error
 SERVER_USER="bitnami"
 SERVER_HOST="3.220.214.231"
 SERVER="${SERVER_USER}@${SERVER_HOST}"
-REMOTE_DIR="/opt/bitnami/apps/moss-chat"
-APP_NAME="moss-chat"
+REMOTE_DIR="/opt/bitnami/apps/garbot-chat"
+APP_NAME="garbot-chat"
 LIGHTSAIL_INSTANCE_NAME="${LIGHTSAIL_INSTANCE_NAME:-WordPress-2}"
 AWS_REGION="${AWS_REGION:-us-east-1}"
 
@@ -200,7 +200,7 @@ ssh $SSH_OPTS $SERVER "$NVM_SOURCE && pm2 save"
 
 echo ""
 echo "✅ Deployment complete!"
-echo "🌐 App should be running at https://moss-chat.managedkube.com"
+echo "🌐 App should be running at https://garbot.managedkube.com"
 
 # Note: Firewall cleanup happens automatically via 'trap cleanup EXIT' (line 75)
 # The cleanup function removes the GitHub Actions runner IP from Lightsail firewall

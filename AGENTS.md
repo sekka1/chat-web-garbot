@@ -1,10 +1,10 @@
 # AGENTS.md
 
-This file provides context and instructions for AI coding agents working on the Moss-chat-web project.
+This file provides context and instructions for AI coding agents working on the chat-web-garbot project.
 
 ## Project Overview
 
-Moss-chat-web is a TypeScript web application.
+chat-web-garbot is a TypeScript web application.
 
 ## Development Environment
 

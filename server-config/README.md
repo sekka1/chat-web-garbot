@@ -5,14 +5,14 @@
 ### Register a new account for a domain
 Should only have to do this once per domain
 ```
-sudo /opt/bitnami/letsencrypt/lego --path /opt/bitnami/letsencrypt --email="support@managedkube.com" --http --http-timeout 30 --http.webroot /opt/bitnami/apps/letsencrypt --domains=moss-chat.managedkube.com run
+sudo /opt/bitnami/letsencrypt/lego --path /opt/bitnami/letsencrypt --email="support@managedkube.com" --http --http-timeout 30 --http.webroot /opt/bitnami/apps/letsencrypt --domains=garbot.managedkube.com run
 ```
 
 ### Make symlink to the certs
 ```
-sudo ln -s /opt/bitnami/letsencrypt/certificates/moss-chat.managedkube.com.crt /opt/bitnami/apache2/conf/moss-chat.managedkube.com.crt
+sudo ln -s /opt/bitnami/letsencrypt/certificates/garbot.managedkube.com.crt /opt/bitnami/apache2/conf/garbot.managedkube.com.crt
 
-sudo ln -s /opt/bitnami/letsencrypt/certificates/moss-chat.managedkube.com.key /opt/bitnami/apache2/conf/moss-chat.managedkube.com.key
+sudo ln -s /opt/bitnami/letsencrypt/certificates/garbot.managedkube.com.key /opt/bitnami/apache2/conf/garbot.managedkube.com.key
 ```
 
 ## Apache2 configs
@@ -23,20 +23,20 @@ Dir: /opt/bitnami/apache2/conf
 Add the include into this file: bitnami/bitnami-apps-vhosts.conf
 
 ```
-Include "/opt/bitnami/apache2/conf/bitnami/moss-chat-vhost.conf"
+Include "/opt/bitnami/apache2/conf/bitnami/garbot-chat-vhost.conf"
 ```
 
 ### Add the vhost include file
 
-File: bitnami/moss-chat-vhost.conf
+File: bitnami/garbot-chat-vhost.conf
 
 ```
-# VirtualHost configuration for moss-chat.managedkube.com
+# VirtualHost configuration for garbot.managedkube.com
 # This proxies to a TypeScript web server application
 
 # HTTP - Redirect to HTTPS
 <VirtualHost *:80>
-  ServerName moss-chat.managedkube.com
+  ServerName garbot.managedkube.com
   
   # Support Let's Encrypt domain renewal
   <IfModule mod_proxy.c>
@@ -52,14 +52,14 @@ File: bitnami/moss-chat-vhost.conf
 
 # HTTPS - Proxy to TypeScript app
 <VirtualHost *:443>
-  ServerName moss-chat.managedkube.com
+  ServerName garbot.managedkube.com
   
   SSLEngine on
   # TODO: Update these paths after generating SSL certificate
   # Run: sudo /opt/bitnami/bncert-tool to generate Let's Encrypt cert
   # Or manually specify your certificate paths:
-  SSLCertificateFile "/opt/bitnami/apache2/conf/moss-chat.managedkube.com.crt"
-  SSLCertificateKeyFile "/opt/bitnami/apache2/conf/moss-chat.managedkube.com.key"
+  SSLCertificateFile "/opt/bitnami/apache2/conf/garbot.managedkube.com.crt"
+  SSLCertificateKeyFile "/opt/bitnami/apache2/conf/garbot.managedkube.com.key"
   
   # Support Let's Encrypt domain renewal
   <IfModule mod_proxy.c>

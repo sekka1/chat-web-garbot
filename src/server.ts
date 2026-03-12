@@ -39,7 +39,7 @@ app.get('/login.html', (_req: Request, res: Response) => {
 
 // Protect the main chat page — redirect to login if not authenticated
 app.get('/', (req: Request, res: Response) => {
-  const token = req.cookies?.moss_session as string | undefined;
+  const token = req.cookies?.garbot_session as string | undefined;
   if (!token) {
     res.redirect('/login.html');
     return;
